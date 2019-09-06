@@ -24,7 +24,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
        
-    <xacro:macro name="colored_link" params="name **visual color transparency **other">
+    <xacro:macro name="colored_link" params="name **visual color transparency:=0 **other">
         <link name="${name}">
             <visual>
                 <xacro:insert_block name="visual" />
