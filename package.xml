@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>urdf_colored_link</name>
+  <name>urdf_juggle</name>
   <version>1.0.0</version>
-  <description>Xacro macros for making colored link both in rviz and in gazebo</description>
+  <description>Helpfull Xacro macroses for URDF</description>
 
   <maintainer email="standmit@zabstrannik.ru">Andrey Stepanov (standmit)</maintainer>
 

@@ -19,7 +19,7 @@
 #	SOFTWARE.
 
 cmake_minimum_required(VERSION 2.8.3)
-project(urdf_colored_link)
+project(urdf_juggle)
 
 find_package(catkin REQUIRED)
 
