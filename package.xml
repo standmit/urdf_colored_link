@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>urdf_colored_link</name>
+  <version>1.0.0</version>
+  <description>Xacro macros for making colored link both in rviz and in gazebo</description>
+
+  <maintainer email="standmit@zabstrannik.ru">Andrey Stepanov (standmit)</maintainer>
+
+  <license>MIT</license>
+
+  <author email="standmit@zabstrannik.ru">Andrey Stepanov (standmit)</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+</package>

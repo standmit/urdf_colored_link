@@ -1,0 +1,13 @@
+<launch>
+	<arg name="model" default="$(find urdf_colored_link)/example/box.urdf.xacro" />
+
+	<param name="robot_description" command="xacro --inorder --xacro-ns '$(arg model)'" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" required="true" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_colored_link)/example/example.rviz" required="true" />
+	
+	<include file="$(find gazebo_ros)/launch/empty_world.launch" />
+	
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-z 0.5 -unpause -urdf -model robot -param robot_description" output="screen" />
+</launch>
