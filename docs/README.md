@@ -26,3 +26,17 @@ Specify attributes `color` and `transparency` and put tag `visual` inside macros
 </xacro:colored_link>
 ```
 ![](colored_link.png)
+
+## Inertia
+Macroses `box_inertia`, `cylinder_inertia` and `sphere_inertia` contains tag `mass` and appropriate inertia matrix based on mass and geometry.
+```xml
+<link name="box">
+    ...
+    <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <xacro:box_inertia mass="1000" size="0.8 0.8 0.8" />
+    </inertial>
+    ...
+</link>
+```
+![](inertia.png)

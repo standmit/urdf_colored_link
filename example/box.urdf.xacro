@@ -3,6 +3,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="example_colored_box">
 	
 	<xacro:include filename="$(find urdf_juggle)/colored_link.urdf.xacro" />
+	<xacro:include filename="$(find urdf_juggle)/inertials.urdf.xacro" />
 	
 	<xacro:colored_link name="box" color="0 0.8 0" transparency="0.3">
 		<visual>
@@ -20,9 +21,8 @@
 				<contact_coefficients mu="0.0005" kp="5884" kd="1.03e-7" />
 			</collision>
 			<inertial>
-				<mass value="1000" />
 				<origin xyz="0 0 0" />
-				<inertia ixx="166.6" ixy="0" ixz="0" iyy="166.6" iyz="0" izz="166.6" />
+				<xacro:box_inertia mass="1000" size="0.8 0.8 0.8" />
 			</inertial>
 		</other>
 	</xacro:colored_link>

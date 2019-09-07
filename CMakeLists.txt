@@ -27,5 +27,6 @@ catkin_package()
 
 install(FILES
 	colored_link.urdf.xacro
+	inertials.urdf.xacro
 	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
