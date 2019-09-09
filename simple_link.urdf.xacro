@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find urdf_juggle)/colored_link.urdf.xacro" />
+    <xacro:include filename="$(find urdf_juggle)/inertials.urdf.xacro" />
+    
+    <xacro:macro name="simple_link" params="name color transparency:=0 *geometry *origin set_collision:=True **inertial **other">
+        <xacro:colored_link name="${name}" color="${color}" transparency="${transparency}">
+            <visual>
+                <xacro:insert_block name="geometry" />
+                <xacro:insert_block name="origin" />
+            </visual>
+            <other>
+                <xacro:if value="${set_collision}">
+                    <collision>
+                        <xacro:insert_block name="geometry" />
+                        <xacro:insert_block name="origin" />
+                    </collision>
+                </xacro:if>
+                <inertial>
+                    <xacro:insert_block name="origin" />
+                    <xacro:insert_block name="inertial" />
+                </inertial>
+                <xacro:insert_block name="other" />
+            </other>
+        </xacro:colored_link>
+    </xacro:macro>
+    
+    <xacro:macro name="simple_box" params="name color transparency:=0 size mass *origin set_collision:=True *other">
+        <xacro:simple_link name="${name}" color="${color}" transparency="${transparency}" set_collision="${set_collision}">
+            <geometry>
+                <box size="${size}" />
+            </geometry>
+            <xacro:insert_block name="origin" />
+            <inertial>
+                <xacro:box_inertia mass="${mass}" size="${size}" />
+            </inertial>
+            <xacro:insert_block name="other" />
+        </xacro:simple_link>
+    </xacro:macro>
+    
+    <xacro:macro name="simple_cylinder" params="name color transparency:=0 radius length mass *origin set_collision:=True *other">
+        <xacro:simple_link name="${name}" color="${color}" transparency="${transparency}" set_collision="${set_collision}">
+            <geometry>
+                <cylinder radius="${radius}" length="${length}" />
+            </geometry>
+            <xacro:insert_block name="origin" />
+            <inertial>
+                <xacro:cylinder_inertia mass="${mass}" radius="${radius}" length="${length}" />
+            </inertial>
+            <xacro:insert_block name="other" />
+        </xacro:simple_link>
+    </xacro:macro>
+    
+    <xacro:macro name="simple_sphere" params="name color transparency:=0 radius mass *origin set_collision:=True *other">
+        <xacro:simple_link name="${name}" color="${color}" transparency="${transparency}" set_collision="${set_collision}">
+            <geometry>
+                <sphere radius="${radius}" />
+            </geometry>
+            <xacro:insert_block name="origin" />
+            <inertial>
+                <xacro:sphere_inertia mass="${mass}" radius="${radius}" />
+            </inertial>
+            <xacro:insert_block name="other" />
+        </xacro:simple_link>
+    </xacro:macro>
+</robot>
