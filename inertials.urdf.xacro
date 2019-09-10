@@ -42,12 +42,12 @@
 	<xacro:property name="z" value="${size.split()[2]}" />
 		<mass value="${mass}" />
 		<inertia
-			ixx="${mass*(z*z+x*x)/12}"
+			ixx="${mass*(y*y+z*z)/12}"
 			ixy="0"
 			ixz="0"
-			iyy="${mass*(y*y+x*x)/12}"
+			iyy="${mass*(z*z+x*x)/12}"
 			iyz="0"
-			izz="${mass*(y*y+z*z)/12}"
+			izz="${mass*(y*y+x*x)/12}"
 		/>
 	</xacro:macro>
 	
